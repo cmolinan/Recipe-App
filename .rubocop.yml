@@ -17,7 +17,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   AllowedMethods: ['describe','schema.rb' ]
-  Max: 50
+  Max: 60
 Metrics/CyclomaticComplexity:
   Max: 12
 Metrics/PerceivedComplexity:

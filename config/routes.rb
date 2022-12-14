@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'shoppings/index'
   get 'publics/index'
   get 'users/index'
