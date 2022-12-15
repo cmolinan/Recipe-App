@@ -25,7 +25,6 @@ header {
   padding: 2rem 3rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  
 }
 
 .logo {
@@ -40,7 +39,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  
 }
 
 .navbar .nav-link {
