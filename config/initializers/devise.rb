@@ -1,3 +1,17 @@
+# frozen_string_literal: true
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -12,7 +26,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '10d123fb21c6d41beaf8dda131b4ab1e3b114659d47c25f54866056c5c2b2bb295a72c67ec8916796d13e9f03faaa7a46983e46859be674f6f5bf8576a1f077d'
+  # config.secret_key = '264c761200e4b17a30b7af97489ffdc261fce0f5b6daf6791c92ad697d73d7f344121eb9f59bccad8efc4edd5a649ab2bcf6e2d2fc853a153f277bf15111c6d1'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -37,6 +51,10 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
+  # ==> Warden configuration
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
@@ -124,7 +142,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '0274390cb46d9c43b4224e5e62a5742e47238072e4b9c85993d9ea0941c234e2dedc7ebb57ed55cf27b81ecec491e456683f20b9d6078f16f3b8ef87e65884cb'
+  # config.pepper = 'de29a879cf0a72d592fadf32bb1c50e2e1a0fc7b736d15a9f135218b5678a9c56d7caa431f96521faddc7148846931147161212265f307bd955c53761c627a95'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
