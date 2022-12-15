@@ -1,0 +1,17 @@
+<div class='recipe'>
+  <div class='done'>
+    <h4><%= link_to @recipe.name, recipe_path(@recipe) %></h4> 
+    by <%= @user.name %>
+    <p>Public: <%= @recipe.public %></p>  
+    <h4>Preparation time: <%= @recipe.preparation_time.strftime('%k:%M') %> hour</h4>
+    <h4>Cooking time: <%= @recipe.cooking_time.strftime('%k:%M') %> hour</h4>
+    
+
+    <p><%= @recipe.description %></p>
+
+    
+    <button class='get'><%= link_to "Generate Shopping List", new_recipe_path %></button>  
+    <button class='get'><%= link_to "Add ingredient", new_recipe_path %></button>
+
+  </div>
+</div>
