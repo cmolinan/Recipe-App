@@ -14,7 +14,7 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -88,7 +88,6 @@ html {
   flex-direction: column;
   margin: 1% auto;
   width: 80%;
-  align-items: left;
   justify-content: center;
   padding: 1%;
 }
@@ -107,4 +106,3 @@ html {
 .dev_error h2 {
   font-size: 12px;
 }
-
