@@ -12,25 +12,18 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    # request.referrer
-    root_url
-    # debugger
-    # redirect_to user_session_url 
-    # if resource_or_scope.is_a?(User)
-    # if resource_or_scope == :user
-    #   root_path
-    #   # redirect_to root_url
-    #   # redirect_to user_session_url
-    #   #users_root
-    # else
-    #   super
-    # end
+    if resource_or_scope == :user
+      new_user_session_path
+    else
+      super
+    end
   end
 
   protected
 
   def update_allowed_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password) }
+    # devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email password password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name email password current_password])
   end
 end
