@@ -2,8 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @foods = Food.all
-    @foods = Food.where(user_id: current_user.id)
+    @foods = Food.all
   end
 
   def new
@@ -22,6 +21,23 @@ class FoodsController < ApplicationController
           render :new
         end
       end
+    end
+  end
+
+  def general
+    @foods = current_user.foods
+    current_user.recipes.map do |recipe|
+      recipe.recipe_foods.map do |recipe_food|
+        food = recipe_food.food
+        test = @foods.select { |f| f.name == food.name }[0]
+        test.quantity = test.quantity - recipe_food.quantity
+      end
+    end
+    @foods = @foods.select { |f| f.quantity.negative? }
+    @foods.each { |f| f.quantity *= -1 }
+    @total = 0
+    @foods.each do |food|
+      @total += (food.price * food.quantity)
     end
   end
 

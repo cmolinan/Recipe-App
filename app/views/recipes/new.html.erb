@@ -17,12 +17,12 @@
       <%= form.text_field :name, required: true, autofocus: true %>
     </div>
     <div class='form-set'>
-      <%= form.label :preparation_time, "Preparation Time (hours)" %>
-      <%= form.number_field :preparation_time, required: true, autofocus: true, in: 0.1..24.0, step: 0.1 %>
+      <%= form.label :preparation_time, "Preparation Time" %>
+      <%= form.number_field :preparation_time, required: true, autofocus: true %>
     </div>
     <div class='form-set'>
-      <%= form.label :cooking_time, "Cooking Time (hours)" %>
-      <%= form.number_field :cooking_time, required: true, autofocus: true, in: 0.1..24.0, step: 0.1 %>
+      <%= form.label :cooking_time, "Cooking Time" %>
+      <%= form.number_field :cooking_time, required: true, autofocus: true %>
     </div>
     <div class='form-set'>
       <%= form.label :description, "Description" %>

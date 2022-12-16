@@ -1,13 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.includes(:user).where(user_id: current_user.id)
-    # @user = User.find_by(id: current_user.id)
+    @recipes = Recipe.all
   end
 
   def show
-    @recipe = Recipe.includes(:user).find(params[:id])
-    # @user = User.find_by(id: current_user.id)
-    @recipe_food = RecipeFood.includes(:food).where(recipe_id: params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -15,7 +12,15 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipe = Recipe.where(public: true)
+    @totals = {}
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes.each do |pub|
+      total = 0
+      RecipeFood.where(recipe_id: pub.id).each do |rec_food|
+        total += rec_food.quantity * rec_food.food.price
+      end
+      @totals[pub.name] = total
+    end
   end
 
   def create

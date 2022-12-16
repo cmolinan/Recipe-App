@@ -1,59 +1,64 @@
-<div class='recipe-details'>
-  <div class='rd-done'>
-
-    <%= link_to @recipe.name, recipe_path(@recipe), class: 'rd-title' %><br>
-    <span class='rd-username'> by <%= @recipe.user.name %></span>
-  
-    <div class='rd-firstline'>
-      Preparation time: <%= @recipe.preparation_time %> hour
-      <div class='is-public'>
-        <label>Public:<%= check_box_tag 'public', 'no', @recipe.public %><br>
-      </div>
-    </div>
-    
-    <div class='rd-secondline'>
-      Cooking time: <%= @recipe.cooking_time %> hour
+<div class="recipe-detail">
+<h2><%= @recipe.name %></h2>
+<div>
+<div class="details">
+    <div class="form-check">
+      <% if @recipe.public == false %>
+        <%= check_box :public, checked: false  %>
+        <label class="check-label" for="unchecked">Public</label>
+      <% else %>
+        <%= check_box :public, checked: true %>
+        <label class="check-label" for="checked">Public</label>
+      <%end%>
     </div>
 
-    <div class='rd-description'>
-      <p><%= @recipe.description %></p>
-    </div>
-    
-    <div class='rd-two-buttons'>
-      <div class = 'rd-get'>
-        <%= link_to "Generate shopping list", recipe_shoppings_path(@recipe.user_id, @recipe.id) %>
-      </div>
-      <div class = 'rd-get'>
-        <%= link_to 'Add Food Ingredients', new_recipe_recipes_food_path(current_user.id, @recipe.id) %>
-      </div>
-    </div>
-
-    <div class='rd-foods-table'>
-      <table class="rd-table">
-        <thead>
-          <tr>
-            <th>Food</th>
-            <th>Quantity</th>
-            <th>Value $</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @recipe_food.each do |rfood| %>
-            <tr>
-              <td><%= rfood.food.name %></td>
-              <td><%= rfood.quantity %></td>
-              <td><%= rfood.food.price %></td>              
-              <div>
-                  <td>
-                    <%= link_to 'Remove', recipe_recipes_food_path(@recipe.id, rfood.id), method: :delete %>
-                  </td>
-              </div>
-            </tr>
-          <% end %>  
-        </tbody>
-      </table>
-    </div>
-
+  <div class="time">
+    <p>Preparation time: </p>
+    <span><%=@recipe.preparation_time %></span>
   </div>
+  <div class="time">
+    <p>Cooking time: </p>
+    <span><%=@recipe.cooking_time %></span>
+  </div>
+
+  <div class='res'>
+    <p><%= @recipe.description %></p>
+  </div>
+
+  <div class="shop-list">
+    <div class="check-list">
+      <%= link_to 'Generate shopping list', recipes_path %>
+    </div>
+     <div class="check-list">
+      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe) %>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<table>
+ <% if @recipe.recipe_foods.any? %>
+    <thead>
+        <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @recipe.recipe_foods.each do |food|%>
+    <tr>
+      <td><%= food.food.name%></th>
+      <td><%= food.quantity%></td>
+      <td><%= food.quantity * food.food.price %></td>
+      <td>
+        <%=link_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.id), data: {turbo_confirm: 'are you sure'}, method: :delete, class:"btn btn-outline-dark"%>
+      </td>
+    </tr>
+    <%end%>
+    </tbody>
+  <%end%>
+</table>
 </div>

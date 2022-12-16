@@ -20,11 +20,10 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(252, 247, 247);
   z-index: 100;
   padding: 2rem 3rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  text-decoration: none;
 }
 
 .logo {
@@ -258,10 +257,8 @@ h2 {
 /* ========= Recipe ========  */
 
 .recipe {
-  margin: 10rem auto 0 auto;
   margin-top: 10rem;
   padding-left: 10rem;
-  text-align: center;
 }
 
 .recipe .get {
@@ -274,38 +271,10 @@ h2 {
   padding: 1rem 3rem;
 }
 
-.recipe-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.recipe-username {
-  margin: 1% 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.recipe-description {
-  display: flex;
-  margin: 5% 0;
-  justify-content: left;
-}
-
-.recipe-description p {
-  text-align: left;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
 .recipe .get:hover {
   background: #05138b;
   color: #fff;
   transition: 0.5s ease-in-out;
-}
-
-.rd-get a {
-  text-decoration: none;
-  color: #fff;
 }
 
 .done h4 a {
@@ -363,6 +332,17 @@ textarea {
   margin-bottom: 2rem;
 }
 
+.new-label input {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  cursor: pointer;
+}
+
 .actions input:hover {
   background: coral;
   border: none;
@@ -372,23 +352,17 @@ textarea {
 }
 
 .done {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  width: 70%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 80%;
   padding: 1rem 1.5rem;
-  margin: auto;
-  text-align: center;
 }
 
-/* .done p {
-  text-align: left;
+.done p {
   font-size: 2rem;
   font-weight: bolder;
   text-align: end;
-} */
+}
 
 .done .delete {
   font-size: 1.5rem;
@@ -397,100 +371,115 @@ textarea {
   color: #fff;
 }
 
-/* ------------RECIPE DETAILS ----- */
-.recipe-details {
-  margin: 10rem auto 0 auto;
-  margin-top: 10rem;
-  padding-left: 10rem;
+/* ====== Recipe Details =======  */
+
+.recipe-detail {
+  margin: 8rem 25%;
+}
+
+.recipe-detail h2 {
   text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
 }
 
-.rd-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.rd-username {
-  margin: 5% 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.rd-firstline {
-  display: flex;
-  flex-direction: row;
+.details .form-check {
+  text-align: end;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: bold;
+}
+
+.details .time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.time p {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-right: 1rem;
+}
+
+.time span {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.details .res {
+  background: gainsboro;
+  font-size: 2rem;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.details .shop-list {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top: 5%;
+  padding: 10px;
 }
 
-.rd-secondline {
-  display: flex;
-  flex-direction: row;
-  font-size: 2rem;
-  font-weight: 700;
-  justify-content: left;
-  margin-top: 5%;
+.shop-list .check-list {
+  border: 1px solid gainsboro;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
 }
 
-.rd-description {
-  display: flex;
-  margin: 5% 0;
-  justify-content: left;
-}
-
-.rd-description p {
-  text-align: left;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-.rd-done {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  width: 60%;
-  max-width: 600px;
-  padding: 1rem 1.5rem;
-  margin: auto;
-}
-
-.rd-two-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.rd-get {
+.shop-list .check-list a {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  background: rgb(102, 102, 245);
-  color: #fff;
-  border-radius: 5rem;
-  padding: 1rem 3rem;
-  width: 45%;
+  font-weight: bolder;
 }
 
-.rd-get:hover {
-  background: #05138b;
-  color: #fff;
-  transition: 0.5s ease-in-out;
+.shop-list .check-list:hover {
+  background: gainsboro;
 }
 
-.rd-foods-table {
+.details hr {
+  border: 1px solid;
+  font-weight: lighter;
+  margin-top: 1rem;
+}
+
+/* ========= Ingrdient =======  */
+
+.add-ing {
+  margin: 2rem auto;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  border: 1px solid grey;
-  font-size: 1.5rem;
-  font-weight: 300;
+  max-width: 50%;
 }
 
-.rd-foods-table thead {
-  color: blue;
+.new-label {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
 }
 
-.rd-table {
-  text-align: center;
+.new-label label {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.new-label select {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
   width: 100%;
-  border: 1px grey;
+  cursor: pointer;
+}
+
+.go-back {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  color: #fff;
 }
