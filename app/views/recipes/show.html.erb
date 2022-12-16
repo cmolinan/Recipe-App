@@ -24,7 +24,8 @@
         <%= link_to "Generate shopping list", recipe_shoppings_path(@recipe.user_id, @recipe.id) %>
       </div>
       <div class = 'rd-get'>
-        <%= link_to 'Add Food Ingredients', new_recipe_recipe_food_path(@recipe.id) %>
+      <%= link_to 'Add Food Ingredients', new_recipe_recipe_food_path(@recipe.id) %>
+      
       </div>
     </div>
     
@@ -46,7 +47,7 @@
               <td><%= rfood.food.price %></td>              
               <div>
                   <td>
-                    <%= link_to 'Remove', recipe_recipe_food_path(@recipe.id, rfood.id), method: :delete %>
+                  <%=link_to "Remove", recipe_recipe_food_path(@recipe, rfood), data: {turbo_method: :delete, turbo_confirm: 'are you sure'}, method: :delete%>
                   </td>
               </div>
             </tr>
