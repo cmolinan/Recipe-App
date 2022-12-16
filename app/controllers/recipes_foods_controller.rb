@@ -1,5 +1,4 @@
 class RecipesFoodsController < ApplicationController
-
   def new
     @recipe = Recipe.find(params[:recipe_id])
     unless @recipe.user == current_user
@@ -8,7 +7,6 @@ class RecipesFoodsController < ApplicationController
     end
     @recipe_food = RecipeFood.new
     @foods = current_user.foods
-    #
   end
 
   def create
