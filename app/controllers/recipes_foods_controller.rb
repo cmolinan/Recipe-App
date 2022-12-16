@@ -8,9 +8,9 @@ class RecipesFoodsController < ApplicationController
     recipe_food = RecipeFood.new(recipe_food_params)
     recipe_food.recipe_id = params[:recipe_id]
 
-    if recipe_food.save
-      redirect_to recipe_path(params[:recipe_id])     
-    end
+    return unless recipe_food.save
+
+    redirect_to recipe_path(params[:recipe_id])
   end
 
   def destroy
