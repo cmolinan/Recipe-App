@@ -3,13 +3,18 @@
   
   <% @recipes.each do |recipe| %>
     <div class='done'>      
-      <%= link_to recipe.name, recipe_path(recipe), class: 'recipe-title' %>
-      <span class='recipe-username'> by <%= recipe.user.name %></span>
-
-      <div class='recipe-description'>
-        <p><%= recipe.description %></p>
+      <div class='recipe-left'>
+        <div>
+          <%= link_to recipe.name, recipe_path(recipe), class: 'recipe-title' %><br>
+          <span class='recipe-username'> by <%= recipe.user.name %></span>      
+        </div>
+        <div>
+          <%= button_to "Remove", recipe_path(recipe.id),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete, class: "delete" %>
+        </div>
       </div>
-      <%= button_to "Delete", recipe_path(recipe.id),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete, class: "delete" %>
+      <div class='recipe-description'>
+        <%= recipe.description %>
+      </div>       
     </div>
   <% end %>
 </div>

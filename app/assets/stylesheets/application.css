@@ -262,6 +262,7 @@ h2 {
   margin-top: 10rem;
   padding-left: 10rem;
   text-align: center;
+  width: 70%;
 }
 
 .recipe .get {
@@ -272,6 +273,14 @@ h2 {
   color: #fff;
   border-radius: 5rem;
   padding: 1rem 3rem;
+}
+
+.recipe-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 15%;
 }
 
 .recipe-title {
@@ -286,12 +295,9 @@ h2 {
 }
 
 .recipe-description {
+  flex: 3;
   display: flex;
   margin: 5% 0;
-  justify-content: left;
-}
-
-.recipe-description p {
   text-align: left;
   font-size: 2rem;
   font-weight: 300;
@@ -373,7 +379,6 @@ textarea {
 
 .done {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   width: 70%;
@@ -493,6 +498,47 @@ textarea {
   text-align: center;
   width: 100%;
   border: 1px grey;
+}
+
+/* ========= Ingrdient =======  */
+
+.add-ing {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 50%;
+}
+
+.new-label {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.new-label label {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.new-label select {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  cursor: pointer;
+}
+
+.go-back {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  color: #fff;
 }
 
 /* ========= Public  ========  */
