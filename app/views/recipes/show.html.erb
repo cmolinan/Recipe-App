@@ -43,8 +43,11 @@
             <tr>
               <td><%= rfood.food.name %></td>
               <td><%= rfood.quantity %></td>
-              <td><%= rfood.food.price %></td>
+              <td><%= rfood.food.price %></td>              
               <div>
+                  <td>
+                    <%= link_to 'Remove', recipe_recipes_food_path(@recipe.id, rfood.id), method: :delete %>
+                  </td>
               </div>
             </tr>
           <% end %>  

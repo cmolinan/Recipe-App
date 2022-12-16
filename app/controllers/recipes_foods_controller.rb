@@ -9,15 +9,13 @@ class RecipesFoodsController < ApplicationController
     recipe_food.recipe_id = params[:recipe_id]
 
     if recipe_food.save
-      redirect_to user_recipe_path(params[:user_id], params[:recipe_id])
-    else
-      puts 'error'
+      redirect_to recipe_path(params[:recipe_id])     
     end
   end
 
   def destroy
     @recipe_food = RecipeFood.find(params[:id]).destroy
-    redirect_to user_recipe_path(params[:user_id], params[:recipe_id])
+    redirect_to recipe_path(params[:recipe_id])
   end
 
   def recipe_food_params
