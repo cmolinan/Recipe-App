@@ -1,10 +1,15 @@
-<div class='recipe'> 
-<button class='get'><%= link_to "Add Recipe", new_recipe_path %></button>
-<div class='done'>
-<% @recipes.each do |recipe| %>
-  <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
-  <p><%= recipe.description %></p>
-  <%= button_to "Delete", recipe_path(recipe.id),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete, class: "delete" %>
-<% end %>
-</div>
+<div class='recipe'>
+  <button class='get'><%= link_to "Add Recipe", new_recipe_path %></button>
+  
+  <% @recipes.each do |recipe| %>
+    <div class='done'>      
+      <%= link_to recipe.name, recipe_path(recipe), class: 'recipe-title' %>
+      <span class='recipe-username'> by <%= recipe.user.name %></span>
+
+      <div class='recipe-description'>
+        <p><%= recipe.description %></p>
+      </div>
+      <%= button_to "Delete", recipe_path(recipe.id),data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :delete, class: "delete" %>
+    </div>
+  <% end %>
 </div>
