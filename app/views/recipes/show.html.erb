@@ -21,7 +21,7 @@
     
     <div class='rd-two-buttons'>
       <div class = 'rd-get'>
-        <%= link_to "Generate shopping list", recipe_shoppings_path(@recipe.user_id, @recipe.id) %>
+        <%= link_to 'Generate shopping list', general_shopping_list_path %>        
       </div>
       <div class = 'rd-get'>
       <%= link_to 'Add Food Ingredients', new_recipe_recipe_food_path(@recipe.id) %>
