@@ -1,10 +1,13 @@
 <div class='recipe'>
   <div class='done'>
     <h4><%= link_to @recipe.name, recipe_path(@recipe) %></h4> 
-    by <%= @user.name %>
-    <p>Public: <%= @recipe.public %></p>  
-    <h4>Preparation time: <%= @recipe.preparation_time.strftime('%k:%M') %> hour</h4>
-    <h4>Cooking time: <%= @recipe.cooking_time.strftime('%k:%M') %> hour</h4>
+    by <%= @recipe.user.name %>
+    <div class='is-public'>
+      <label>Public:<%= check_box_tag 'public', 'no', @recipe.public %><br>
+    </div>
+
+    <h4>Preparation time: <%= @recipe.preparation_time %> hour</h4>
+    <h4>Cooking time: <%= @recipe.cooking_time %> hour</h4>
     
 
     <p><%= @recipe.description %></p>
@@ -12,6 +15,30 @@
     
     <button class='get'><%= link_to "Generate Shopping List", new_recipe_path %></button>  
     <button class='get'><%= link_to "Add ingredient", new_recipe_path %></button>
+
+    <div class='recipe-foods-table'>
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value $</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe_food.each do |rfood| %>
+            <tr>
+              <td><%= rfood.food.name %></td>
+              <td><%= rfood.quantity %></td>
+              <td><%= rfood.food.price %></td>
+              <div>
+              </div>
+            </tr>
+          <% end %>  
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </div>

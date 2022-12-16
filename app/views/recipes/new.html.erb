@@ -18,11 +18,11 @@
     </div>
     <div class='form-set'>
       <%= form.label :preparation_time, "Preparation Time" %>
-      <%= form.number_field :preparation_time, required: true, autofocus: true %>
+      <%= form.number_field :preparation_time, required: true, autofocus: true, in: 1.0..24.0, step: 0.1 %>
     </div>
     <div class='form-set'>
       <%= form.label :cooking_time, "Cooking Time" %>
-      <%= form.number_field :cooking_time, required: true, autofocus: true %>
+      <%= form.number_field :cooking_time, required: true, autofocus: true, in: 1.0..24.0, step: 0.1 %>
     </div>
     <div class='form-set'>
       <%= form.label :description, "Description" %>
