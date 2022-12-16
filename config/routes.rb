@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :users
 
   devise_scope :recipe do
-    get '/recipe/:recipe_id/recipes_foods/new' => 'recipes_foods#new'
+    get '/recipes/:recipe_id/recipe_foods/new' => 'recipes_foods#new'
     get '/recipes/:recipe_id/recipe_foods/:id' => 'recipes_foods#destroy'
   end
 
