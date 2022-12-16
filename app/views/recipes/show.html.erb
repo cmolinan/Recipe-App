@@ -1,23 +1,35 @@
-<div class='recipe'>
-  <div class='done'>
-    <h4><%= link_to @recipe.name, recipe_path(@recipe) %></h4> 
-    by <%= @recipe.user.name %>
-    <div class='is-public'>
-      <label>Public:<%= check_box_tag 'public', 'no', @recipe.public %><br>
+<div class='recipe-details'>
+  <div class='rd-done'>
+
+    <%= link_to @recipe.name, recipe_path(@recipe), class: 'rd-title' %><br>
+    <span class='rd-username'> by <%= @recipe.user.name %></span>
+  
+    <div class='rd-firstline'>
+      Preparation time: <%= @recipe.preparation_time %> hour
+      <div class='is-public'>
+        <label>Public:<%= check_box_tag 'public', 'no', @recipe.public %><br>
+      </div>
+    </div>
+    
+    <div class='rd-secondline'>
+      Cooking time: <%= @recipe.cooking_time %> hour
     </div>
 
-    <h4>Preparation time: <%= @recipe.preparation_time %> hour</h4>
-    <h4>Cooking time: <%= @recipe.cooking_time %> hour</h4>
+    <div class='rd-description'>
+      <p><%= @recipe.description %></p>
+    </div>
     
+    <div class='rd-two-buttons'>
+      <div class = 'rd-get'>
+        <%= link_to "Generate shopping list", recipe_shoppings_path(@recipe.user_id, @recipe.id) %>
+      </div>
+      <div class = 'rd-get'>
+        <%= link_to 'Add Food Ingredients', new_recipe_recipes_food_path(current_user.id, @recipe.id) %>
+      </div>
+    </div>
 
-    <p><%= @recipe.description %></p>
-
-    
-    <button class='get'><%= link_to "Generate Shopping List", new_recipe_path %></button>  
-    <button class='get'><%= link_to "Add ingredient", new_recipe_path %></button>
-
-    <div class='recipe-foods-table'>
-      <table>
+    <div class='rd-foods-table'>
+      <table class="rd-table">
         <thead>
           <tr>
             <th>Food</th>

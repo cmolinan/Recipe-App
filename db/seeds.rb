@@ -9,7 +9,7 @@
 users = User.create!([
   {name: 'Tom Hanks', email: 'tom@m.com', password: '666666'},
   {name: 'Mark Hamilton', email: 'mark@m.com', password: '666666'},
-  {name: 'Lilly Hertz', email: 'lillyge@m.com', password: '666666'},
+  {name: 'Lilly Hertz', email: 'lilly@m.com', password: '666666'},
   {name: 'John Robertson', email: 'john@m.com', password: '666666'},
   {name: 'Klaus Henner', email: 'klaus@m.com', password: '666666'},
 ])

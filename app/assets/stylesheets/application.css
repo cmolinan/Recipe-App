@@ -274,10 +274,38 @@ h2 {
   padding: 1rem 3rem;
 }
 
+.recipe-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.recipe-username {
+  margin: 1% 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.recipe-description {
+  display: flex;
+  margin: 5% 0;
+  justify-content: left;
+}
+
+.recipe-description p {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 .recipe .get:hover {
   background: #05138b;
   color: #fff;
   transition: 0.5s ease-in-out;
+}
+
+.rd-get a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .done h4 a {
@@ -344,22 +372,125 @@ textarea {
 }
 
 .done {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 50%;
+  width: 70%;
+  max-width: 600px;
   padding: 1rem 1.5rem;
   margin: auto;
+  text-align: center;
 }
 
-.done p {
+/* .done p {
+  text-align: left;
   font-size: 2rem;
   font-weight: bolder;
   text-align: end;
-}
+} */
 
 .done .delete {
   font-size: 1.5rem;
   background: #6d7ae7;
   padding: 0.5rem 1rem;
   color: #fff;
+}
+
+/* ------------RECIPE DETAILS ----- */
+.recipe-details {
+  margin: 10rem auto 0 auto;
+  margin-top: 10rem;
+  padding-left: 10rem;
+  text-align: center;
+}
+
+.rd-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.rd-username {
+  margin: 5% 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.rd-firstline {
+  display: flex;
+  flex-direction: row;
+  font-size: 2rem;
+  font-weight: 700;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.rd-secondline {
+  display: flex;
+  flex-direction: row;
+  font-size: 2rem;
+  font-weight: 700;
+  justify-content: left;
+  margin-top: 5%;
+}
+
+.rd-description {
+  display: flex;
+  margin: 5% 0;
+  justify-content: left;
+}
+
+.rd-description p {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.rd-done {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  width: 60%;
+  max-width: 600px;
+  padding: 1rem 1.5rem;
+  margin: auto;
+}
+
+.rd-two-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rd-get {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  background: rgb(102, 102, 245);
+  color: #fff;
+  border-radius: 5rem;
+  padding: 1rem 3rem;
+  width: 45%;
+}
+
+.rd-get:hover {
+  background: #05138b;
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+.rd-foods-table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid grey;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.rd-foods-table thead {
+  color: blue;
+}
+
+.rd-table {
+  text-align: center;
+  width: 100%;
+  border: 1px grey;
 }

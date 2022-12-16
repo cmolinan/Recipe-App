@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :foods, except: [:edit, :update]
     resources :recipes, only: [:index, :show, :new, :create, :destroy] do            
       resources :recipes_foods, only: [:new, :create, :destroy]
+      resources :shoppings, only: [:index]
     end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
