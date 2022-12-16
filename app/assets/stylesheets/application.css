@@ -159,6 +159,7 @@ h2 {
   align-items: center;
 }
 
+
 .heading {
   font-size: 3rem;
   margin-bottom: 1.5rem;
@@ -566,7 +567,7 @@ textarea {
   margin: 10rem 25%;
 }
 
-.heading {
+.heading-p {
   font-size: 3rem;
   font-weight: bolder;
   text-align: center;
