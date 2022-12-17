@@ -1,0 +1,59 @@
+<div class='recipe-details'>
+  <div class='rd-done'>
+
+    <%= link_to @recipe.name, recipe_path(@recipe), class: 'rd-title' %><br>
+    <span class='rd-username'> by <%= @recipe.user.name %></span>
+  
+    <div class='rd-firstline'>
+      Preparation time: <%= @recipe.preparation_time %> hour
+      <div class='is-public'>
+        <label>Public:<%= check_box_tag 'public', 'no', @recipe.public %><br>
+      </div>
+    </div>
+    
+    <div class='rd-secondline'>
+      Cooking time: <%= @recipe.cooking_time %> hour
+    </div>
+
+    <div class='rd-description'>
+      <p><%= @recipe.description %></p>
+    </div>
+    
+    <div class='rd-two-buttons'>
+      <div class = 'rd-get'>
+        <%= link_to 'Generate shopping list', general_shopping_list_path %>        
+      </div>
+      <div class = 'rd-get'>      
+      <%= link_to 'Add Food Ingredients', new_recipe_recipes_food_path(@recipe) %>
+      </div>
+    </div>
+    
+    <div class='rd-foods-table'>
+      <table class="rd-table">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value $</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe_food.each do |rfood| %>
+            <tr>
+              <td><%= rfood.food.name %></td>
+              <td><%= rfood.quantity %></td>
+              <td><%= rfood.food.price %></td>              
+              <div>
+                  <td>
+                  <%=link_to "Remove", recipe_recipes_food_path(@recipe, rfood), data: {turbo_method: :delete, turbo_confirm: 'are you sure'}, method: :delete%>
+                  </td>
+              </div>
+            </tr>
+          <% end %>  
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
