@@ -21,13 +21,16 @@
     
     <div class='rd-two-buttons'>
       <div class = 'rd-get'>
-        <%= link_to "Generate shopping list", recipe_shoppings_path(@recipe.user_id, @recipe.id) %>
+        <%= link_to 'Generate shopping list', general_shopping_list_path %>        
       </div>
       <div class = 'rd-get'>
-        <%= link_to 'Add Food Ingredients', new_recipe_recipes_food_path(current_user.id, @recipe.id) %>
+      <%= link_to 'Add Food Ingredients', new_recipe_recipe_food_path(@recipe) %>
+    
+
+
       </div>
     </div>
-
+    
     <div class='rd-foods-table'>
       <table class="rd-table">
         <thead>
@@ -46,7 +49,7 @@
               <td><%= rfood.food.price %></td>              
               <div>
                   <td>
-                    <%= link_to 'Remove', recipe_recipes_food_path(@recipe.id, rfood.id), method: :delete %>
+                  <%=link_to "Remove", recipe_recipe_food_path(@recipe, rfood), data: {turbo_method: :delete, turbo_confirm: 'are you sure'}, method: :delete%>
                   </td>
               </div>
             </tr>
