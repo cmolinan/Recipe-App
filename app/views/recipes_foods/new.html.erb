@@ -1,6 +1,6 @@
 <h2 class="heading">Add Recipe Food</h2>
 <div class='add-ing'>
-<%= form_with url: recipe_recipe_foods_path, scope: :recipe_food do |f| %>
+<%= form_with url: recipe_recipes_foods_path, scope: :recipe_food do |f| %>
     <div class='new-label'>
     <%= f.label :food %><br>
     <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]}%>
@@ -16,6 +16,6 @@
     </div>
 <% end %>
   <div class='go-back'>
-    <%=link_to 'Back', foods_path %>
+    <%=link_to 'Back', :back %>
   </div>
 </div>
